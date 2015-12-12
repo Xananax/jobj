@@ -20,5 +20,20 @@
     "babel-preset-stage-0": "^6.1.18",
     "chai": "^3.4.1",
     "mocha": "^2.3.4"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xananax/jobj.git"
+  },
+  "keywords": [
+    "immutable",
+    "structure",
+    "object",
+    "map"
+  ],
+  "bugs": {
+    "url": "https://github.com/Xananax/jobj/issues"
+  },
+  "homepage": "https://github.com/Xananax/jobj#readme"
 }
