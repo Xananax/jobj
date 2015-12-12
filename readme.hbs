@@ -1,0 +1,24 @@
+#JOBJ
+
+A collection of utilities to work with objects. Lighter than most, and does what I want
+Particularly useful to work with immutables, as all functions return new objects.
+
+I was mainly tired of always re-writting the same little functions in every project.
+
+# Methods
+
+{{>main}}
+
+Additionally, it provides the following immutable replacements for mutative array functions:
+`push`,`pop`,`splice`,`sort`,`reverse`,`shift`, and `unshift`.
+All functions work like their native counterparts, but take an `array` argument first
+(they also return an array instead of, say, the `length` property for `push`).
+
+# Install
+
+```sh
+npm install jobj
+```
+
+## License
+MIT

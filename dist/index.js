@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.unshift = exports.sort = exports.reverse = exports.push = exports.pop = exports.splice = exports.SKIP_UNDEFINED = exports.SKIP_OBJECTS = exports.SKIP_ARRAYS = exports.REVERSE = exports.traverse = exports.transform = exports.objForEach = exports.objFilter = exports.merge = exports.mapObj = exports.getNestedProperty = exports.consts = exports.assign = exports.arrayToObj = undefined;
+exports.unshift = exports.sort = exports.reverse = exports.push = exports.pop = exports.splice = exports.SKIP_UNDEFINED = exports.SKIP_OBJECTS = exports.SKIP_ARRAYS = exports.REVERSE = exports.traverse = exports.transform = exports.throttle = exports.objForEach = exports.objFilter = exports.merge = exports.mapObj = exports.getNestedProperty = exports.debounce = exports.consts = exports.assign = exports.arrayToObj = exports.addProperty = undefined;
 
 var _consts2 = require('./consts');
 
@@ -77,6 +77,10 @@ Object.defineProperty(exports, 'unshift', {
 	}
 });
 
+var _addaddProperty = require('./addaddProperty');
+
+var _addaddProperty2 = _interopRequireDefault(_addaddProperty);
+
 var _arrayToObj2 = require('./arrayToObj');
 
 var _arrayToObj3 = _interopRequireDefault(_arrayToObj2);
@@ -86,6 +90,10 @@ var _assign2 = require('./assign');
 var _assign3 = _interopRequireDefault(_assign2);
 
 var _consts3 = _interopRequireDefault(_consts2);
+
+var _debounce2 = require('./debounce');
+
+var _debounce3 = _interopRequireDefault(_debounce2);
 
 var _getNestedProperty2 = require('./getNestedProperty');
 
@@ -107,6 +115,10 @@ var _objForEach2 = require('./objForEach');
 
 var _objForEach3 = _interopRequireDefault(_objForEach2);
 
+var _throttle2 = require('./throttle');
+
+var _throttle3 = _interopRequireDefault(_throttle2);
+
 var _transform2 = require('./transform');
 
 var _transform3 = _interopRequireDefault(_transform2);
@@ -117,13 +129,16 @@ var _traverse3 = _interopRequireDefault(_traverse2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+exports.addProperty = _addaddProperty2.default;
 exports.arrayToObj = _arrayToObj3.default;
 exports.assign = _assign3.default;
 exports.consts = _consts3.default;
+exports.debounce = _debounce3.default;
 exports.getNestedProperty = _getNestedProperty3.default;
 exports.mapObj = _mapObj3.default;
 exports.merge = _merge3.default;
 exports.objFilter = _objFilter3.default;
 exports.objForEach = _objForEach3.default;
+exports.throttle = _throttle3.default;
 exports.transform = _transform3.default;
 exports.traverse = _traverse3.default;
