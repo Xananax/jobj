@@ -52,6 +52,18 @@ This is comparable to Object.assign({},...objects).</p>
 <dt><a href="#debounce">debounce(Function, Number, any)</a> ⇒</dt>
 <dd><p>debounce - debounces a function to run only a certain number of times per second</p>
 </dd>
+<dt><a href="#EventEmitter">EventEmitter(opts)</a> ⇒</dt>
+<dd><p>EventEmitter - Creates a new EventEmitter. This EventEmitter implementation
+is designed to handle one single event type.
+You are free to use <code>new</code> or just call the function.
+Takes an option object. The options are:</p>
+<ul>
+<li><code>onInit()</code> runs when the EventEmitter instance is created</li>
+<li><code>onFirst()</code> runs when the EventEmitter instance has its first listener</li>
+<li><code>onLast()</code> runs when the EventEmitter instance removes its last listener</li>
+</ul>
+<p>Use them to do some initialization and clean up</p>
+</dd>
 <dt><a href="#getNestedProperty">getNestedProperty(Object, Array|String)</a> ⇒</dt>
 <dd><p>getNestedProperty - Finds a property in an object with a provided path</p>
 </dd>
@@ -95,6 +107,19 @@ This predicate can either be:</p>
 element.
 The functor has the following signature:
 function(value,key,object,index)</p>
+</dd>
+<dt><a href="#onResize">onResize(Function)</a> ⇒</dt>
+<dd><p>onResize - listens to browser resize events. The function is debounced and
+runs only if there has been a change in value. It also automatically cleans
+the window event listener when the last callback function has been removed.</p>
+<p>The listener receives an object:</p>
+<pre><code class="language-javascript">{win:{width,height},doc:{width,height}}
+</code></pre>
+<p>Calling the function without arguments returns the current value.
+Calling it with a listener returns:</p>
+<pre><code class="lang-js">{dispose,win:{width,height},doc:{width,height}}
+</code></pre>
+<p><code>dispose()</code> can be called to remove the listener.</p>
 </dd>
 <dt><a href="#throttle">throttle(Function, Number, Any)</a> ⇒</dt>
 <dd><p>throttle - throttles a function to emit only every nth second</p>
@@ -273,6 +298,108 @@ debounce - debounces a function to run only a certain number of times per second
 | Number | [delay]   the delay (defaults to 300ms) |
 | any | [thisArg] an optional context for the function |
 
+<a name="EventEmitter"></a>
+## EventEmitter(opts) ⇒
+EventEmitter - Creates a new EventEmitter. This EventEmitter implementation
+is designed to handle one single event type.
+You are free to use `new` or just call the function.
+Takes an option object. The options are:
+
+- `onInit()` runs when the EventEmitter instance is created
+- `onFirst()` runs when the EventEmitter instance has its first listener
+- `onLast()` runs when the EventEmitter instance removes its last listener
+
+Use them to do some initialization and clean up
+
+**Kind**: global function  
+**Returns**: EventEmitter an instance of EventEmitter  
+
+| Param | Description |
+| --- | --- |
+| opts | an options object |
+
+
+* [EventEmitter(opts)](#EventEmitter) ⇒
+    * [.getListenerIndex(Function)](#EventEmitter+getListenerIndex) ⇒
+    * [.addListener(Function)](#EventEmitter+addListener) ⇒
+    * [.once(Function)](#EventEmitter+once) ⇒
+    * [.removeListener(Function)](#EventEmitter+removeListener) ⇒
+    * [.removeListenerByIndex(Int)](#EventEmitter+removeListenerByIndex) ⇒
+    * [.emit(any)](#EventEmitter+emit) ⇒
+    * [.clean()](#EventEmitter+clean) ⇒
+
+<a name="EventEmitter+getListenerIndex"></a>
+### eventEmitter.getListenerIndex(Function) ⇒
+getListenerIndex - returns an index for a given listener
+
+**Kind**: instance method of <code>[EventEmitter](#EventEmitter)</code>  
+**Returns**: Int               the index, or -1 if not found;  
+
+| Param | Description |
+| --- | --- |
+| Function | listener the listener to find the index of |
+
+<a name="EventEmitter+addListener"></a>
+### eventEmitter.addListener(Function) ⇒
+addListener - Adds a listener to the pool
+
+**Kind**: instance method of <code>[EventEmitter](#EventEmitter)</code>  
+**Returns**: Int the index of the listener (useful for removeListenerByIndex)  
+
+| Param | Description |
+| --- | --- |
+| Function | listener |
+
+<a name="EventEmitter+once"></a>
+### eventEmitter.once(Function) ⇒
+once - Adds a listener that will only fire once
+
+**Kind**: instance method of <code>[EventEmitter](#EventEmitter)</code>  
+**Returns**: undefined  
+
+| Param | Description |
+| --- | --- |
+| Function | listener |
+
+<a name="EventEmitter+removeListener"></a>
+### eventEmitter.removeListener(Function) ⇒
+removeListener - removes a listener from the pool
+
+**Kind**: instance method of <code>[EventEmitter](#EventEmitter)</code>  
+**Returns**: undefined  
+
+| Param | Description |
+| --- | --- |
+| Function | listener |
+
+<a name="EventEmitter+removeListenerByIndex"></a>
+### eventEmitter.removeListenerByIndex(Int) ⇒
+removeListenerByIndex - Removes a listener from the pool
+
+**Kind**: instance method of <code>[EventEmitter](#EventEmitter)</code>  
+**Returns**: undefined  
+
+| Param | Description |
+| --- | --- |
+| Int | `index` the index of the listener to remove |
+
+<a name="EventEmitter+emit"></a>
+### eventEmitter.emit(any) ⇒
+emit - Calls all the listeners with the given props
+
+**Kind**: instance method of <code>[EventEmitter](#EventEmitter)</code>  
+**Returns**: undefined  
+
+| Param | Description |
+| --- | --- |
+| any | props something to pass to the listeners |
+
+<a name="EventEmitter+clean"></a>
+### eventEmitter.clean() ⇒
+clean - removes all listeners
+
+**Kind**: instance method of <code>[EventEmitter](#EventEmitter)</code>  
+**Returns**: undefined  
 <a name="getNestedProperty"></a>
 ## getNestedProperty(Object, Array|String) ⇒
 getNestedProperty - Finds a property in an object with a provided path
@@ -361,6 +488,31 @@ function(value,key,object,index)
 | Object | obj       The object to iterate on |
 | Function | fn        The functor to apply |
 | any | [thisArg] A context for the functor |
+
+<a name="onResize"></a>
+## onResize(Function) ⇒
+onResize - listens to browser resize events. The function is debounced and
+runs only if there has been a change in value. It also automatically cleans
+the window event listener when the last callback function has been removed.
+
+The listener receives an object:
+```js
+{win:{width,height},doc:{width,height}}
+```
+
+Calling the function without arguments returns the current value.
+Calling it with a listener returns:
+```js
+{dispose,win:{width,height},doc:{width,height}}
+```
+`dispose()` can be called to remove the listener.
+
+**Kind**: global function  
+**Returns**: Object              An object representing the current browser size  
+
+| Param | Description |
+| --- | --- |
+| Function | `listener` A function to run when the browser size changes |
 
 <a name="throttle"></a>
 ## throttle(Function, Number, Any) ⇒

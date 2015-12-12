@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.unshift = exports.sort = exports.reverse = exports.push = exports.pop = exports.splice = exports.SKIP_UNDEFINED = exports.SKIP_OBJECTS = exports.SKIP_ARRAYS = exports.REVERSE = exports.traverse = exports.transform = exports.throttle = exports.objForEach = exports.objFilter = exports.merge = exports.mapObj = exports.getNestedProperty = exports.debounce = exports.consts = exports.assign = exports.arrayToObj = exports.addProperty = undefined;
+exports.unshift = exports.sort = exports.reverse = exports.push = exports.pop = exports.splice = exports.SKIP_UNDEFINED = exports.SKIP_OBJECTS = exports.SKIP_ARRAYS = exports.REVERSE = exports.traverse = exports.transform = exports.throttle = exports.onResize = exports.objForEach = exports.objFilter = exports.merge = exports.mapObj = exports.getNestedProperty = exports.EventEmitter = exports.debounce = exports.consts = exports.assign = exports.arrayToObj = exports.addProperty = undefined;
 
 var _consts2 = require('./consts');
 
@@ -95,6 +95,10 @@ var _debounce2 = require('./debounce');
 
 var _debounce3 = _interopRequireDefault(_debounce2);
 
+var _EventEmitter2 = require('./EventEmitter');
+
+var _EventEmitter3 = _interopRequireDefault(_EventEmitter2);
+
 var _getNestedProperty2 = require('./getNestedProperty');
 
 var _getNestedProperty3 = _interopRequireDefault(_getNestedProperty2);
@@ -115,6 +119,10 @@ var _objForEach2 = require('./objForEach');
 
 var _objForEach3 = _interopRequireDefault(_objForEach2);
 
+var _onResize2 = require('./onResize');
+
+var _onResize3 = _interopRequireDefault(_onResize2);
+
 var _throttle2 = require('./throttle');
 
 var _throttle3 = _interopRequireDefault(_throttle2);
@@ -134,11 +142,13 @@ exports.arrayToObj = _arrayToObj3.default;
 exports.assign = _assign3.default;
 exports.consts = _consts3.default;
 exports.debounce = _debounce3.default;
+exports.EventEmitter = _EventEmitter3.default;
 exports.getNestedProperty = _getNestedProperty3.default;
 exports.mapObj = _mapObj3.default;
 exports.merge = _merge3.default;
 exports.objFilter = _objFilter3.default;
 exports.objForEach = _objForEach3.default;
+exports.onResize = _onResize3.default;
 exports.throttle = _throttle3.default;
 exports.transform = _transform3.default;
 exports.traverse = _traverse3.default;
