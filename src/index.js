@@ -1,4 +1,4 @@
-export addProperty from './addaddProperty'
+export addProperty from './addProperty'
 export arrayToObj from './arrayToObj'
 export assign from './assign'
 export consts from './consts'

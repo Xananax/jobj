@@ -77,9 +77,9 @@ Object.defineProperty(exports, 'unshift', {
 	}
 });
 
-var _addaddProperty = require('./addaddProperty');
+var _addProperty2 = require('./addProperty');
 
-var _addaddProperty2 = _interopRequireDefault(_addaddProperty);
+var _addProperty3 = _interopRequireDefault(_addProperty2);
 
 var _arrayToObj2 = require('./arrayToObj');
 
@@ -129,7 +129,7 @@ var _traverse3 = _interopRequireDefault(_traverse2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.addProperty = _addaddProperty2.default;
+exports.addProperty = _addProperty3.default;
 exports.arrayToObj = _arrayToObj3.default;
 exports.assign = _assign3.default;
 exports.consts = _consts3.default;
