@@ -1,6 +1,6 @@
-import debounce from '../debounce';
-import EventEmitter from '../EventEmitter';
-import assign from '../assign';
+import debounce from './debounce';
+import EventEmitter from './EventEmitter';
+import assign from './assign';
 
 function onResizeHandler(previousVal){
 	const obj = {

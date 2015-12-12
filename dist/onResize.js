@@ -5,15 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = onResize;
 
-var _debounce = require('../debounce');
+var _debounce = require('./debounce');
 
 var _debounce2 = _interopRequireDefault(_debounce);
 
-var _EventEmitter = require('../EventEmitter');
+var _EventEmitter = require('./EventEmitter');
 
 var _EventEmitter2 = _interopRequireDefault(_EventEmitter);
 
-var _assign = require('../assign');
+var _assign = require('./assign');
 
 var _assign2 = _interopRequireDefault(_assign);
 
