@@ -50,7 +50,9 @@ The operation always returns a new object.
 This is comparable to Object.assign({},...objects).</p>
 </dd>
 <dt><a href="#debounce">debounce(Function, Number, any)</a> ⇒</dt>
-<dd><p>debounce - debounces a function to run only a certain number of times per second</p>
+<dd><p>debounce - debounces a function to run only a certain number of times per second
+The debounced returned function has a <code>delay</code> property that can be changed
+to obtain dynamic delays.</p>
 </dd>
 <dt><a href="#EventEmitter">EventEmitter(opts)</a> ⇒</dt>
 <dd><p>EventEmitter - Creates a new EventEmitter. This EventEmitter implementation
@@ -288,6 +290,8 @@ This is comparable to Object.assign({},...objects).
 <a name="debounce"></a>
 ## debounce(Function, Number, any) ⇒
 debounce - debounces a function to run only a certain number of times per second
+The debounced returned function has a `delay` property that can be changed
+to obtain dynamic delays.
 
 **Kind**: global function  
 **Returns**: Function           the debounced function  

@@ -1,6 +1,8 @@
 
 /**
  * debounce - debounces a function to run only a certain number of times per second
+ * The debounced returned function has a `delay` property that can be changed
+ * to obtain dynamic delays.
  *
  * @param  Function fn        a function
  * @param  Number   [delay]   the delay (defaults to 300ms)
@@ -16,4 +18,5 @@ export default function debounce(fn, delay, thisArg){
 		timer = setTimeout(()=>fn.apply(context, args), debounced.delay);
 	};
 	debounced.delay = delay;
+	return debounced
 }
