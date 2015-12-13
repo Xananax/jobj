@@ -45,9 +45,12 @@ function _objFilter(obj, fn, reverse, thisArg) {
 function objFilter(obj, predicate, opts, thisArg) {
 	var reverse = opts & _consts.REVERSE;
 	if (typeof predicate !== 'function') {
-		predicate = function generatedPredicate(val, key, obj, i) {
-			return predicate.indexOf(key) >= 0;
-		};
+		(function () {
+			var arr = predicate;
+			predicate = function generatedPredicate(val, key, obj, i) {
+				return arr.indexOf(key) >= 0;
+			};
+		})();
 	}
 	return _objFilter(obj, predicate, reverse, thisArg);
 }

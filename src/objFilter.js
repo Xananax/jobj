@@ -35,8 +35,9 @@ function _objFilter(obj,fn,reverse,thisArg){
 export default function objFilter(obj,predicate,opts,thisArg){
 	const reverse = opts & REVERSE;
 	if(typeof predicate !== 'function'){
+		const arr = predicate;
 		predicate = function generatedPredicate(val,key,obj,i){
-			return (predicate.indexOf(key)>=0)
+			return (arr.indexOf(key)>=0)
 		}
 	}
 	return _objFilter(obj,predicate,reverse,thisArg);
